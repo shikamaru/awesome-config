@@ -20,7 +20,7 @@ theme.wallpaper = confdir .."/wallpapers/konohaf.png"
 theme.font      = "Terminus 8"
 
 -- {{{ Colors
-theme.fg_normal = "#52584D"
+theme.fg_normal = "#60B48A"
 theme.fg_focus  = "#DCDCCC"
 theme.fg_urgent = "#BF0303"
 theme.bg_normal = "#000000"
