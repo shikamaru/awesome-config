@@ -224,7 +224,6 @@ myneticonup.image = image(beautiful.widget_netup)
 -- Initialize widgets
 mynetwidget       = widget({ type = "textbox", name = "mynetwidget" })
 mynetfiwidget     = widget({ type = "textbox", name = "mynetfiwidget" })
-mynethsdpawidget  = widget({ type = "textbox", name = "mynethsdpawidget" })
 -- Register ethernet widget
 vicious.register(mynetwidget, vicious.widgets.net,
     '<span color="'.. beautiful.fg_netdn_widget ..'">${eth0 down_kb}</span> <span color="'
@@ -235,10 +234,6 @@ vicious.cache(vicious.widgets.net)
 vicious.register(mynetfiwidget, vicious.widgets.net,
     '<span color="'.. beautiful.fg_netdn_widget ..'">${wlan0 down_kb}</span> <span color="'
     .. beautiful.fg_netup_widget ..'">${wlan0 up_kb}</span>', 3)
--- Register HSDPA widget
-vicious.register(mynethsdpawidget, vicious.widgets.net,
-    '<span color="'.. beautiful.fg_netdn_widget ..'">${ppp0 down_kb}</span> <span color="'
-    .. beautiful.fg_netup_widget ..'">${ppp0 up_kb}</span>', 3)
 -- }}}
 -- }}}
 -- Create a textclock widget
@@ -328,8 +323,6 @@ for s = 1, screen.count() do
         myneticonup ,mynetwidget, myneticon,
         myseparator,
         myneticonup ,mynetfiwidget, myneticon,
-        myseparator,
-        myneticonup, mynethsdpawidget, myneticon,
         --mytasklist[s],
         layout = awful.widget.layout.horizontal.rightleft
     }
