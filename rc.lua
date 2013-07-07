@@ -137,8 +137,8 @@ shifty.config.apps = {
          { match = { "Chromium","uzbl","Firefox","Midori","Iceweasel"      } , tag = "web"    } ,
          { match = { "mutt", ".*Evolution"                                 } , tag = "mail"   } ,
          { match = { "pcmanfm"                                             } , slave = true   } ,
-         { match = { "OpenOffice.*", "LibreOffice.*", "okular", "epdfview", ".*Microsoft Word" } , tag = "office" } ,
-         { match = { "Mplayer.*","gimp","smplayer"         } , tag = "media", nopopup = true, } ,
+         { match = { "LibreOffice.*", "okular", "epdfview", ".*Microsoft Word" } , tag = "office" } ,
+         { match = { "Mplayer.*","gimp","smplayer","vlc"       } , tag = "media", nopopup = true, } ,
          { match = { "MPlayer",                                            } , float = true   } ,
          { match = { terminal                      } , honorsizehints = false, slave = true   } ,
     {
