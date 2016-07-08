@@ -235,7 +235,14 @@ mycpuwidget:set_color({
 --awful.widget.layout.margins[mycpuwidget.widget] = { top = 1 }
 -- Register
 vicious.register(mycpuwidget, vicious.widgets.cpu, "$1")
-vicious.register(mythermalwidget, vicious.widgets.thermal, "$1°C", 19, "thermal_zone0")
+vicious.register(mythermalwidget, vicious.widgets.thermal, "$1°C", 19, { "it87.552", "core" })
+-- }}}
+-- {{{ GFX
+mygfxicon       = wibox.widget.imagebox()
+mygfxicon:set_image(beautiful.widget_gfx)
+-- Initialize
+mygfxwidget    = wibox.widget.textbox()
+vicious.register(mygfxwidget, vicious.widgets.thermal, "$1°C", 19, { "hwmon0", "hwmon" })
 -- }}}
 -- {{{ Mem
 -- Icon
@@ -283,14 +290,14 @@ mynetwidget       = wibox.widget.textbox()
 mynetfiwidget     = wibox.widget.textbox()
 -- Register ethernet widget
 vicious.register(mynetwidget, vicious.widgets.net,
-    '<span color="'.. beautiful.fg_netdn_widget ..'">${eth1 down_kb}</span> <span color="'
-    .. beautiful.fg_netup_widget ..'">${eth1 up_kb}</span>', 3)
+    '<span color="'.. beautiful.fg_netdn_widget ..'">${eth0 down_kb}</span> <span color="'
+    .. beautiful.fg_netup_widget ..'">${eth0 up_kb}</span>', 3)
 -- Avoid buggy numbers for widgets
 vicious.cache(vicious.widgets.net)
 -- Register wireless widget
 vicious.register(mynetfiwidget, vicious.widgets.net,
-    '<span color="'.. beautiful.fg_netdn_widget ..'">${wlan1 down_kb}</span> <span color="'
-    .. beautiful.fg_netup_widget ..'">${wlan1 up_kb}</span>', 3)
+    '<span color="'.. beautiful.fg_netdn_widget ..'">${wlan0 down_kb}</span> <span color="'
+    .. beautiful.fg_netup_widget ..'">${wlan0 up_kb}</span>', 3)
 -- }}}
 -- }}}
 -- Create a textclock widget
@@ -377,6 +384,7 @@ for s = 1, screen.count() do
     myneticon, mynetwidget, myneticonup,
     mybaticon, mybatwidget,
     mymemicon, mymemwidget,
+    mygfxicon, mygfxwidget,
     mycpuicon, mythermalwidget, mycpuwidget,
     mytextclock, mylayoutbox[s]
     }
