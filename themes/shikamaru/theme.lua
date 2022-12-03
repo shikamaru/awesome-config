@@ -99,7 +99,7 @@ theme.layout_floating   = confdir .. "/icons/layouts/floating.png"
 
 -- {{{ Widget icons
 theme.widget_cpu    = confdir .. "/icons/cpu.png"
-theme.widget_gfx    = confdir .. "/icons/gfx.png"
+theme.widget_gpu    = confdir .. "/icons/gpu.png"
 theme.widget_bat    = confdir .. "/icons/bat.png"
 theme.widget_mem    = confdir .. "/icons/mem.png"
 theme.widget_fs     = confdir .. "/icons/disk.png"
