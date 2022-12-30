@@ -376,7 +376,17 @@ mybaticon:set_image(beautiful.widget_bat)
 -- Initialize widget
 mybatwidget     = wibox.widget.textbox()
 -- Register widget
-vicious.register(mybatwidget, vicious.widgets.bat, "$1$2%", 61, "BAT0")
+vicious.register(mybatwidget, vicious.widgets.bat, function (widget, args)
+        if args[2] < 5 and args[1] == '-' then
+            return ('<span color="'.. beautiful.fg_urgent ..'">%s%s%%</span>'):format(args[1], args[2])
+        elseif args[2] < 20 and args[1] == '-' then
+            return ('<span color="'.. beautiful.fg_center_widget ..'">%s%s%%</span>'):format(args[1], args[2])
+        elseif args[1] == '↯' or args[1] == '+' and args[2] > 98 then
+            return ('<span color="'.. beautiful.fg_center_widget ..'">%s%s%%</span>'):format(args[1], args[2])
+        else
+            return ("%s%s%%"):format(args[1], args[2])
+        end
+    end, 61, "BAT0")
 -- }}}
 -- {{{ Network usage statistics
 -- Widget icons
