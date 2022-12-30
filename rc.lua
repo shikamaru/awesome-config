@@ -332,7 +332,10 @@ mycpuwidget:set_color({
 --awful.widget.layout.margins[mycpuwidget.widget] = { top = 1 }
 -- Register
 vicious.register(mycpuwidget, vicious.widgets.cpu, "$1")
-vicious.register(mythermalwidget, vicious.widgets.hwmontemp, "$1°C", 19, { "k10temp", 1 })
+vicious.register(mythermalwidget, vicious.widgets.hwmontemp,
+    function(widget, args)
+        return("%.0f°C"):format(args[1])
+    end, 19, { "k10temp", 1 })
 -- }}}
 -- {{{ Mem
 -- Icon
